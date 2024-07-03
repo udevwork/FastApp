@@ -1,7 +1,12 @@
 import SwiftUI
 
-struct OnboardingUIView: View {
-    var body: some View {
+public struct OnboardingUIView: View {
+    
+    public init(){
+        
+    }
+    
+    public var body: some View {
         Text("Hello, World!")
     }
 }
