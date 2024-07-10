@@ -1,0 +1,42 @@
+# Terms of Use
+## 1. Introduction
+
+Welcome to [App Name]! These Terms of Use ("Terms") govern your access to and use of our mobile application [App Name] ("the App"), which offers auto-renewable subscriptions to access to all paid features. Please read these Terms carefully before using the App.
+
+## 2. Acceptance of Terms
+
+By using the App, you agree to be bound by these Terms. If you disagree with any part of the terms, then you should not access or use the App.
+
+## 3. Subscription Details
+
+Subscriptions in the App provide access to all paid features. Subscriptions are automatically renewed at the end of each subscription period. You can manage your subscription and turn off auto-renewal in your account settings at any time.
+
+## 4. Payment, Renewal, and Cancellation
+
+Payment for the subscription is charged to your credit card through your Apple account. The subscription will automatically renew 24 hours before the end of the current period. You can cancel your subscription at any time before the end of the current subscription period to avoid the next charge.
+
+## 5. Usage Restrictions
+
+You agree not to use the App for any unlawful purposes, infringe any intellectual property rights, or involve third parties in creating derivative works using the App.
+
+## 6. Intellectual Property
+
+All rights, including copyrights and trademarks in the content within the App, are owned by [Company Name] or its licensors. The content in the App is provided for your personal and non-commercial use only.
+
+## 7. Disclaimer of Warranties
+
+The App is provided "AS IS" without any warranties. [Company Name] is not liable for any direct or indirect damages arising from your use of the App.
+
+## 8. Governing Law and Dispute Resolution
+
+Any disputes arising from these Terms will be resolved according to the laws of The European Union jurisdiction.
+
+## 9. Changes to Terms
+
+[Company Name] reserves the right to modify these Terms at any time. Changes become effective immediately after posting the updated Terms in the App.
+
+## 10. Contact Information
+
+If you have any questions about these Terms, please contact us at 
+
+**[email]**.
