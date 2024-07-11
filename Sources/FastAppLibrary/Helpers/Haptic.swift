@@ -14,4 +14,16 @@ final class Haptic {
         let generator = UISelectionFeedbackGenerator()
         generator.selectionChanged()
     }
+    
+    
+    func sdf (){
+        
+        Haptic.impact()
+        Haptic.impact(style: .heavy)
+        Haptic.notify(style: .success)
+        Haptic.selection()
+        
+        
+    }
+    
 }

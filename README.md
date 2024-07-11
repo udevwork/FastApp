@@ -1,11 +1,15 @@
 # FastAppLibrary
 
-### Описание
-FastAppLibrary - это набор готовых к использованию компонентов SwiftUI для быстрой разработки iOS приложений. Пакет включает в себя готовые экраны, ui элементы и различные расширения в Apple-like дизайне c поддержкой разных размеров экранов, черной и светлой темы.
+| ![FastAppLibrary github](https://img.shields.io/badge/Swift-5.9-orange.svg)             |   ![FastAppLibrary github](https://img.shields.io/badge/UI-SwiftUI-green.svg)                                                              |
+| ----------------- | ------------------------------------------------------------------ |
+
+
+### Description
+FastAppLibrary is a set of ready-to-use SwiftUI components for rapid iOS application development. The package includes pre-made screens, UI elements, and various extensions in an Apple-like design, supporting different screen sizes, dark and light themes.
 
 ## Installation
 
-Install package with SPM
+Install the package with SPM:
 
 ```bash
   .package(url: "https://github.com/udevwork/FastApp.git", branch: "main")
@@ -13,7 +17,7 @@ Install package with SPM
 
 ## Setup
 
-Вам нужно провести настройки для работы библиотеки
+To work with the library, perform the following setup:
 
 ```swift
 import FastAppLibrary
@@ -42,7 +46,7 @@ func application(didFinishLaunchingWithOptions) {
 
 ```
 
-Добавте модификатор .fastAppDefaultWrapper() на ваш рутовый экран. Это нужно для корректной работы показа экранов и алертов
+Add the modifier .fastAppDefaultWrapper() to your root screen. This is necessary for the correct display of screens and alerts:
 
 ```swift
 @main
@@ -58,44 +62,50 @@ struct NoAlgoApp: App {
 
 ## Paywall
 
-Для коректной работы настройте подписки вашего приложения в Appstore Connect и свяжите их с RevenueCat.
-Далее, в RevenueCat, создайте один Offers. Подписок может быть сколько угодно, а так же содержать introductory offer в виде триала
+| ![SwiftUI Paywall github](https://github.com/udevwork/FastApp/blob/main/images/1.PNG?raw=true)             |  ![alt text](https://github.com/udevwork/FastApp/blob/main/images/2.PNG?raw=true)                                                           |
+| ----------------- | ------------------------------------------------------------------ |
 
-Проверьте что вы заполнили paywallBenefits в стартовых настройках.
 
-Документы Privacy и Terms генерируются налету, ничего добавлять не надо. Данные берутся из настроек которые вы сделали на страте приложения. Дополнительных настроек не требуется, кнопки показа просмотрщика и сам просмотщик работают из коробки.  
+To ensure proper functionality, configure your app's subscriptions in App Store Connect and link them with RevenueCat. Then, create Offers in RevenueCat. There can be any number of subscriptions, including introductory offers like trials.
 
-Для вызова пэйвола:
+Make sure you have filled out the paywallBenefits in the initial settings.
+
+Privacy and Terms documents are generated on the fly, no need to add anything extra. The data is taken from the settings you made at the app's start. No additional settings are required; the viewer buttons and the viewer itself work out of the box.
+
+To call the paywall:
 
 ```swift
 FastApp.subscriptions.showPaywallScreen()
 ```
 
-Это сработает в любом месте. Можно вызывать как из View, так и из ViewModel, например.
+This will work anywhere. It can be called from a View or ViewModel, for example.
 
-Для отслеживания подписки пользователя @Published Bool переменная:
+To track user subscriptions, use the @Published Bool variable:
 
 ```swift
 FastApp.subscriptions.isSubscribed
 ```
-Обновлением этого поля полностью занимается FastApp, но если вам требуется дополнительно обновить его:  
+FastApp handles updating this field, but if you need to update it additionally:
 
 ```swift
 FastApp.subscriptions.checkSubscriptionStatus()
 ```
-Узнать дату окончания подписки:
+To find out the subscription expiration date:
+
 ```swift
 FastApp.subscriptions.fetchExpirationDate()
 ```
 
 ## Onboarding
 
-Онбординг берет данные из onboardingItems в настройках которые вы сделали на страте приложения. Он автоматически вызовется при первом запуске приложения, сам запомнит это и на следующих стартах показываться не будет.
+![SwiftUI Onboarding github](https://github.com/udevwork/FastApp/blob/main/images/3.PNG?raw=true)
+
+The onboarding takes data from onboardingItems in the settings you made at the start of the app. It will automatically be shown on the first launch of the app, remember this, and will not be shown on subsequent launches.
 
 ## Alerts
 
-В библиотеку вшиты различные алерты.
-Пример вызова алерта:
+The library includes various alerts. Example of calling an alert:
+
 ```swift
 FastApp.alerts.show(
         title: "Download",
@@ -104,17 +114,106 @@ FastApp.alerts.show(
         sdubTitle: "success!"
     )
 ```
-Доступные типы: complete, error, systemImage, image, loading, regular, а так же кастомизация дизайна. 
+Available types: complete, error, systemImage, image, loading, regular, and custom design.
 
 ## UI и Extension
 
-В библиотеку добавлены кастомизируемые:
-1. Улучшеный TextField с плейсхолдером и анимацией
-2. Стили для Button() 
-3. Бейджи
-4. Горизотальная галлерея с любым контентом и пагинацией
-5. Расширение для Color с большой палитрой адаптивных под тему цветов
-6. Расширение Haptic для удобного использования
-7. Удобный логгер, основанн на OSLog для возможности фильтровать их в консоли, выводом времени, класса, метода и строчки кода где он сработал. Поддерживает множество входных параметров + если из них есть структуры или объекты - будет распечатан дамп объектов.
-8. Готовые стили для Text() от футера до заголовка
-9. Видеоплеер с удобной настройка frame'а, зацикливанием и без кнопок управления. 
+The library includes customizable:
+
+1. Enhanced TextField with placeholder and animation.
+
+![SwiftUI reusable ui github](https://github.com/udevwork/FastApp/blob/main/images/6.png?raw=true)
+
+```swift
+FloatingTextField(text: $text, placehopder: "Enter name")
+```
+
+2. Button styles with 11 built-in colors.
+
+![SwiftUI buttons github](https://github.com/udevwork/FastApp/blob/main/images/4.png?raw=true)
+
+```swift
+Button(action: {}, label: {
+    Text("Success")
+}).buttonStyle(LargeButtonStyle(color: .success))
+```
+
+3. Badges.
+
+![SwiftUI bages github](https://github.com/udevwork/FastApp/blob/main/images/7.png?raw=true)
+
+```swift
+Text("green").coloredBageStyle(color: .green)
+```
+
+4. Horizontal gallery with any content and pagination.
+
+![SwiftUI gallery github](https://github.com/udevwork/FastApp/blob/main/images/8.png?raw=true)
+
+```swift
+HorizontalSnapGalleryView(data: $data, content: { currentData in
+    ZStack {
+        Rectangle().foregroundStyle(Color.blue.gradient)
+        Text("\(currentData.text)")
+            .titleStyle()
+            .foregroundStyle(.white)
+        
+    }
+})
+```
+
+5. Color extension with 36 adaptive colors for themes.
+
+![SwiftUI Color extension github](https://github.com/udevwork/FastApp/blob/main/images/5.png?raw=true)
+
+```swift
+Color.systemGray3
+Color.systemBackground
+Color.systemTeal
+...
+```
+
+6. Haptic extension for convenient use.
+
+```swift
+Haptic.impact()
+Haptic.impact(style: .heavy)
+Haptic.notify(style: .success)
+Haptic.selection()
+```
+
+7. Convenient logger based on OSLog to filter in the console, displaying time, class, method, and line of code where it worked. Supports many input parameters, and if there are structures or objects among them, a dump of the objects will be printed.
+
+```swift
+log(.Error, subscriptions.isSubscribed, "log test", ObjectDTO())
+```
+
+8. 8 ready-made styles for Text() from title to footer.
+
+```swift
+Text("Title").titleStyle()
+Text("Subtitle").subtitleStyle()
+Text("Headline text").headlineStyle()
+Text("Subheadline text").subheadlineStyle()
+            ...
+```
+
+9. Video player with easy frame setting, looping, and without control buttons.ё
+
+```swift
+LoopPlayerView {
+    Settings {
+        FileName("videoBG4")
+        Ext("mov")
+        Gravity(.resizeAspectFill)
+    }
+}
+.frame(height: 70)
+.saturation(3.0)
+.brightness(0.20)
+.mask(
+    Text("0.1lab")
+        .font(.system(size: 75, weight: .black, design: .default))
+        .multilineTextAlignment(.leading)
+)
+```

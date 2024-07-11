@@ -190,21 +190,15 @@ public class FastApp: ObservableObject {
     public static var subscriptions = Subscriptions()
     public static var onboarding = Onboarding()
     
-    public var settings: FastAppSettings? = nil
+    var settings: FastAppSettings? = nil
     
     private init() { }
     
     public func setup(_ settings: FastAppSettings){
         self.settings = settings
         Purchases.logLevel = .debug
-        Purchases.configure(withAPIKey: settings.reveueCatAPI)
+        Purchases.configure(withAPIKey: settings.revenueCatAPI)
         FastApp.onboarding.showIfNeeded()
-        FastApp.alerts.show(
-            title: "Download",
-            displayMode: .alert,
-            type: .complete(.green),
-            sdubTitle: "success!"
-        )
     }
 }
 
@@ -213,7 +207,7 @@ public struct FastAppSettings {
     public var appName: String
     public var companyName: String
     public var companyEmail: String
-    public var reveueCatAPI: String
+    public var revenueCatAPI: String
     public var paywallBenefits: [PaywallBenefitItem]
     public var onboardingItems: [OnBoardingModel]
     
@@ -221,14 +215,14 @@ public struct FastAppSettings {
         appName: String,
         companyName: String,
         companyEmail: String,
-        reveueCatAPI: String,
+        revenueCatAPI: String,
         paywallBenefits: [PaywallBenefitItem],
         onboardingItems: [OnBoardingModel]
     ) {
         self.appName = appName
         self.companyName = companyName
         self.companyEmail = companyEmail
-        self.reveueCatAPI = reveueCatAPI
+        self.revenueCatAPI = revenueCatAPI
         self.paywallBenefits = paywallBenefits
         self.onboardingItems = onboardingItems
     }

@@ -269,5 +269,9 @@ public struct FloatingTextField: View {
 
 #Preview {
     @State var text = ""
-    return FloatingTextField(text: $text, placehopder: "Enter name")
+    return 
+    VStack {
+        FloatingTextField(text: $text, placehopder: "Enter name")
+        FloatingTextField(text: $text, placehopder: "Enter name")
+    }.padding(60)
 }

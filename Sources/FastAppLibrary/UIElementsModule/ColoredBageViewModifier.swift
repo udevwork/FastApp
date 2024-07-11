@@ -22,7 +22,11 @@ extension View {
     }
 }
 
-
 #Preview {
-    Text("hello").coloredBageStyle(color: .green)
+    HStack {
+        Text("green").coloredBageStyle(color: .green)
+        Text("blue").coloredBageStyle(color: .blue)
+        Text("red").coloredBageStyle(color: .red)
+        Text("purple").coloredBageStyle(color: .purple)
+    }
 }

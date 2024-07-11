@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Denis Kotelnikov on 09.07.2024.
-//
-
 import Foundation
 import SwiftUI
 import MarkdownUI
@@ -23,7 +16,7 @@ public class Documents {
             return FastAppSettings(appName: "TESTNAME", 
                                    companyName: "TEST COMPANY",
                                    companyEmail: "test@email.com",
-                                   reveueCatAPI: "",
+                                   revenueCatAPI: "",
                                    paywallBenefits: [],
                                    onboardingItems: [])
         }

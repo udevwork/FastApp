@@ -1,10 +1,3 @@
-//
-//  PlayerView.swift
-//
-//
-//  Created by Igor on 10.02.2023.
-//
-
 import SwiftUI
 import UIKit
 import AVKit

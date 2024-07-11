@@ -57,10 +57,14 @@ struct HorizontalSnapGalleryViewTestItem: Identifiable {
         .init(text: "hello")
     ]
     
-    return HorizontalSnapGalleryView(data: $data, content: { currentdata in
+    return 
+    HorizontalSnapGalleryView(data: $data, content: { currentdata in
         ZStack {
-            Rectangle().foregroundStyle(Color.red.gradient)
+            Rectangle().foregroundStyle(Color.blue.gradient)
             Text("\(currentdata.text)")
+                .titleStyle()
+                .foregroundStyle(.white)
+            
         }
     })
 }

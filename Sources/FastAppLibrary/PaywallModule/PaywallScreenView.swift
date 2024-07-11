@@ -4,9 +4,14 @@ import AlertToast
 
 class PaywallViewModel: ObservableObject {
     
-    @Published var selectedPlanIndex: Int = 0
-    @Published var products: [PaywallProductItemModel] = PaywallProductItemModel.mock
-    @Published var benefits: [PaywallBenefitItem] = FastApp.shared.settings?.paywallBenefits ?? PaywallBenefitItem.mock
+    @Published 
+    var selectedPlanIndex: Int = 0
+    
+    @Published
+    var products: [PaywallProductItemModel] = []
+    
+    @Published
+    var benefits: [PaywallBenefitItem] = FastApp.shared.settings?.paywallBenefits ?? []
     
     var productsCount: Int = 0
     
@@ -101,7 +106,7 @@ public struct PaywallUIView: View {
                             }
                            
                             VStack(alignment: .leading) {
-                                Text("Pick up subscription plan")
+                                Text("Choose a subscription plan")
                                 ForEach(model.products.indices, id: \.self) { i in
                                     Button(action: {
                                         withAnimation {
@@ -129,8 +134,13 @@ public struct PaywallUIView: View {
                         Button(action: {
                             model.subscribe()
                         }, label: {
-                            let text = model.products[model.selectedPlanIndex].title.uppercased()
-                            Text("GET \(text)")
+                            if model.products.count > 0 {
+                                let text = model.products[model.selectedPlanIndex].title.uppercased()
+                                
+                                Text("GET \(text)")
+                            } else {
+                                ProgressView()
+                            }
                         })
                         .buttonStyle(LargeButtonStyle())
                         .withHapticFeedback()

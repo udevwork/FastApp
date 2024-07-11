@@ -36,3 +36,22 @@ extension View {
     }
 }
 
+#Preview {
+
+    VStack {
+        Button(action: {}, label: {
+            Text("Standart")
+        }).buttonStyle(LargeButtonStyle())
+        
+        Button(action: {}, label: {
+            Text("Success")
+        }).buttonStyle(LargeButtonStyle(color: .success))
+        
+        Button(action: {}, label: {
+            Text("Secondary")
+        }).buttonStyle(LargeButtonStyle(color: .secondary))
+        
+    }
+    
+        .padding(50)
+}
