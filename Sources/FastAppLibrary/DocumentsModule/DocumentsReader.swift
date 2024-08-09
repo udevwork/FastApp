@@ -9,6 +9,10 @@ public class Documents {
         case privacy = "Privacy Policy"
     }
     
+    public init() {
+        
+    }
+    
     var setting = {
         if let settings = FastApp.shared.settings {
             return settings
@@ -46,12 +50,12 @@ public class Documents {
     
 }
 
-struct DocumentsButtonsView: View {
+public struct DocumentsButtonsView: View {
     
     @State var showTerms : Bool = false
     @State var showPrivacy : Bool = false
     
-    var body: some View {
+    public var body: some View {
         HStack {
             Button(action: {
                 showTerms.toggle()
@@ -76,12 +80,16 @@ struct DocumentsButtonsView: View {
     }
 }
 
-struct DocumentsView: View {
+public struct DocumentsView: View {
     
     @Environment(\.dismiss) var dismiss
     @State var text : String
     
-    var body: some View {
+    public init(text: String) {
+        self.text = text
+    }
+    
+    public var body: some View {
         ZStack {
             ScrollView {
                 Markdown(text)
