@@ -33,7 +33,8 @@ public struct HorizontalSnapGalleryView<Data, Content>: View where Data : Random
                     content(element)
                 }
                 .frame(width: containerWidth - elemetsEgesOffes*2)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(height: galleryHeight)
+                //.clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .scrollTargetLayout()
         }

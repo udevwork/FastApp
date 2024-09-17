@@ -19,6 +19,10 @@ extension FastApp {
                 inboardingComplete = true
             }
         }
+        
+        public func show() {
+            showOnboarding = true
+        }
     }
 }
 
@@ -57,6 +61,11 @@ extension FastApp {
         
         @Published
         public var isSubscribed: Bool = false
+        
+        // If you need to make, for example, screenshots,
+        // or just check the design, you can use mock data.
+        // Be sure to delete them before release.
+        public var _mockProducts: [PaywallProductItemModel]? = nil
         
         public func showPaywallScreen() {
             showPaywall.toggle()
@@ -190,7 +199,7 @@ public class FastApp: ObservableObject {
     public static var subscriptions = Subscriptions()
     public static var onboarding = Onboarding()
     
-    var settings: FastAppSettings? = nil
+    public var settings: FastAppSettings? = nil
     
     private init() { }
     
@@ -210,6 +219,9 @@ public struct FastAppSettings {
     public var revenueCatAPI: String
     public var paywallBenefits: [PaywallBenefitItem]
     public var onboardingItems: [OnBoardingModel]
+    public var END_USER_LICENSE_AGREEMENT_URL: String
+    public var PRIVACY_POLICY_LINK: String
+    public var TERMS_CONDITIONS_LINK: String
     
     public init(
         appName: String,
@@ -217,7 +229,10 @@ public struct FastAppSettings {
         companyEmail: String,
         revenueCatAPI: String,
         paywallBenefits: [PaywallBenefitItem],
-        onboardingItems: [OnBoardingModel]
+        onboardingItems: [OnBoardingModel],
+        END_USER_LICENSE_AGREEMENT_URL: String,
+        PRIVACY_POLICY_LINK: String,
+        TERMS_CONDITIONS_LINK: String
     ) {
         self.appName = appName
         self.companyName = companyName
@@ -225,6 +240,9 @@ public struct FastAppSettings {
         self.revenueCatAPI = revenueCatAPI
         self.paywallBenefits = paywallBenefits
         self.onboardingItems = onboardingItems
+        self.END_USER_LICENSE_AGREEMENT_URL = END_USER_LICENSE_AGREEMENT_URL
+        self.PRIVACY_POLICY_LINK = PRIVACY_POLICY_LINK
+        self.TERMS_CONDITIONS_LINK = TERMS_CONDITIONS_LINK
     }
 }
 

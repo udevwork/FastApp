@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-extension Color {
+public extension Color {
     
     static let systemRed = Color(UIColor.systemRed)
     static let systemGreen = Color(UIColor.systemGreen)
@@ -21,7 +21,7 @@ extension Color {
     static let tertiarySystemFill = Color(UIColor.tertiarySystemFill)
     static let quaternarySystemFill = Color(UIColor.quaternarySystemFill)
     static let placeholderText = Color(UIColor.placeholderText)
-    static let systemBackground = Color(UIColor.systemBackground)
+    public static let systemBackground = Color(UIColor.systemBackground)
     static let secondarySystemBackground = Color(UIColor.secondarySystemBackground)
     static let tertiarySystemBackground = Color(UIColor.tertiarySystemBackground)
     static let systemGroupedBackground = Color(UIColor.systemGroupedBackground)

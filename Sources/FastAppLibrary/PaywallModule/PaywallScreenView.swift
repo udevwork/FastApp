@@ -20,6 +20,12 @@ class PaywallViewModel: ObservableObject {
     }
     
     func getSubscriptions() {
+        if let mock = FastApp.subscriptions._mockProducts {
+            products = mock
+            productsCount = mock.count
+            return
+        }
+        
         FastApp.subscriptions.getOffer { products in
             self.productsCount = products.count
             products.forEach { product in

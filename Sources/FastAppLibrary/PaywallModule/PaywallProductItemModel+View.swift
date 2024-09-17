@@ -13,6 +13,30 @@ public struct PaywallProductItemModel: Identifiable {
     var bestValue: Bool
     var introductoryPeriod: String?
     var offPersent: String?
+    
+    public init(
+        id: String,
+        numereticPrice: Decimal,
+        product: StoreProduct,
+        title: String,
+        subtitle: String,
+        subscriptionPeriod: String,
+        price: String,
+        bestValue: Bool,
+        introductoryPeriod: String? = nil,
+        offPersent: String? = nil)
+    {
+        self.id = id
+        self.numereticPrice = numereticPrice
+        self.product = product
+        self.title = title
+        self.subtitle = subtitle
+        self.subscriptionPeriod = subscriptionPeriod
+        self.price = price
+        self.bestValue = bestValue
+        self.introductoryPeriod = introductoryPeriod
+        self.offPersent = offPersent
+    }
 }
 
 struct PaywallProductElementView: View {
@@ -36,17 +60,20 @@ struct PaywallProductElementView: View {
                         
                     }
                     Spacer()
-                    if let trial = product.introductoryPeriod {
-                        HStack(spacing:5) {
-                            Text(trial)
-                            Text("trial").bold()
-                        }.coloredBageStyle(color: .purple)
-                    }
-                    if product.bestValue {
-                        HStack {
-                            Image(systemName: "flame.fill")
-                            Text("Best!")
-                        }.coloredBageStyle(color: .red)
+                    VStack(alignment: .trailing, spacing: 5) {
+                    
+                        if let trial = product.introductoryPeriod {
+                            HStack(spacing:5) {
+                                Text(trial)
+                                Text("trial").bold()
+                            }.coloredBageStyle(color: .purple)
+                        }
+                        if product.bestValue {
+                            HStack {
+                                Image(systemName: "flame.fill")
+                                Text("Best!")
+                            }.coloredBageStyle(color: .red)
+                        }
                     }
                 }
             }.padding(20)

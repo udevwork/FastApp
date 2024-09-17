@@ -17,12 +17,17 @@ public class Documents {
         if let settings = FastApp.shared.settings {
             return settings
         } else {
-            return FastAppSettings(appName: "TESTNAME", 
-                                   companyName: "TEST COMPANY",
-                                   companyEmail: "test@email.com",
-                                   revenueCatAPI: "",
-                                   paywallBenefits: [],
-                                   onboardingItems: [])
+            return FastAppSettings(
+                appName: "TESTNAME",
+                companyName: "TEST COMPANY",
+                companyEmail: "test@email.com",
+                revenueCatAPI: "",
+                paywallBenefits: [],
+                onboardingItems: [],
+                END_USER_LICENSE_AGREEMENT_URL: "",
+                PRIVACY_POLICY_LINK: "",
+                TERMS_CONDITIONS_LINK: ""
+            )
         }
     }()
     
@@ -56,22 +61,19 @@ public struct DocumentsButtonsView: View {
     @State var showPrivacy : Bool = false
     
     public var body: some View {
-        HStack {
-            Button(action: {
-                showTerms.toggle()
-            }) {
-                Text("Terms of Use")
-                    .foregroundColor(.blue)
-                    .underline()
-            }
-            Text("and")
-            Button(action: {
-                showPrivacy.toggle()
-            }) {
-                Text("Privacy Policy")
-                    .foregroundColor(.blue)
-                    .underline()
-            }
+        HStack(spacing: 0) {
+            
+            Link("Terms of Use", destination: URL(string: FastApp.shared.settings?.TERMS_CONDITIONS_LINK ?? "")!)
+                .foregroundColor(.blue)
+                .underline()
+            Text(", ")
+            Link("Privacy Policy", destination: URL(string: FastApp.shared.settings?.PRIVACY_POLICY_LINK ?? "")!)
+                .foregroundColor(.blue)
+                .underline()
+            Text(", ")
+            Link("License", destination: URL(string: FastApp.shared.settings?.PRIVACY_POLICY_LINK ?? "")!)
+                .foregroundColor(.blue)
+                .underline()
         }.fullScreenCover(isPresented: $showTerms, content: {
             DocumentsView(text: Documents().get(documents: .terms))
         }).fullScreenCover(isPresented: $showPrivacy, content: {

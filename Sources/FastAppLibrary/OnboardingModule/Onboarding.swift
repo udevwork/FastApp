@@ -1,9 +1,10 @@
 import SwiftUI
 
-public struct OnBoardingModel {
-    let image: String
-    let title: String
-    let subTitle: String
+public struct OnBoardingModel: Identifiable {
+    public let id = UUID()
+    public let image: String
+    public let title: String
+    public let subTitle: String
     
     public init(image: String, title: String, subTitle: String) {
         self.image = image
