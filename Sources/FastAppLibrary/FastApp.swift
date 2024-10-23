@@ -8,10 +8,10 @@ extension FastApp {
     public class Onboarding: ObservableObject {
         
         @Published
-        var showOnboarding: Bool = false
+        public var showOnboarding: Bool = false
         
         @FoilDefaultStorage(key: "OnboardingComplete")
-        var inboardingComplete = false
+        public var inboardingComplete = false
         
         public func showIfNeeded() {
             if !inboardingComplete {
@@ -57,7 +57,7 @@ extension FastApp {
     public class Subscriptions: ObservableObject {
         
         @Published
-        var showPaywall: Bool = false
+        public var showPaywall: Bool = false
         
         @Published
         public var isSubscribed: Bool = false
@@ -92,7 +92,7 @@ extension FastApp {
             Purchases.shared.checkTrialOrIntroDiscountEligibility(product: product, completion: completion)
         }
         
-        func restorePurchases() {
+        public func restorePurchases() {
             guard FastApp.shared.settings != nil else { return }
             Purchases.shared.restorePurchases { customerInfo, error in
                 alerts.show(title: "Purchases restored!")
