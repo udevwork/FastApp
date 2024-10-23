@@ -70,6 +70,7 @@ public struct OnboardingHorizontalGalleryView: View {
                 
                 Button(action: {
                     if currentStep == datas.count - 1 {
+                        FastApp.onboarding.checkAsCompleted()
                         dismiss()
                     } else if currentStep < datas.count - 1 {
                         withAnimation {
@@ -89,6 +90,7 @@ public struct OnboardingHorizontalGalleryView: View {
    
                     Button(action: {
                         dismiss()
+                        FastApp.onboarding.checkAsCompleted()
                     }) {
                         
                         Text("Skip")

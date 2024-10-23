@@ -11,17 +11,20 @@ extension FastApp {
         public var showOnboarding: Bool = false
         
         @FoilDefaultStorage(key: "OnboardingComplete")
-        public var inboardingComplete = false
+        public private(set) var onboardingComplete = false
         
         public func showIfNeeded() {
-            if !inboardingComplete {
+            if !onboardingComplete {
                 showOnboarding = true
-                inboardingComplete = true
             }
         }
         
         public func show() {
             showOnboarding = true
+        }
+        
+        public func checkAsCompleted(){
+            onboardingComplete = true
         }
     }
 }
